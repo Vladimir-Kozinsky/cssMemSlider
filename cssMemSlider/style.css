@@ -1,4 +1,88 @@
-* {
+/* * {
     padding: 0;
     margin: 0;
+} */
+
+.slider {
+    padding: 30px 0px 30px;
+    max-width: 760px;
+    border: 4px rgb(116, 113, 113) solid;
+    margin: 0 auto;
+    background-color: rgb(70, 70, 70);
+    border-radius: 20px;
+}
+
+.slider-block {
+    max-width: 700px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column-reverse;
+}
+
+.slider-block input {
+    display: none;
+}
+
+
+/* NAME-CONTROL PANEL */
+
+.name-contolPanel-wrapper {
+    width: 100%;
+    margin: 0 auto;
+    margin-top: 20px;
+    height: 7%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 3;
+}
+
+.name-contolPanel-wrapper label {
+    display: none;
+}
+
+.slide-name label {
+    font-size: 24px;
+    color: white;
+}
+
+.controls {
+    width: 110px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.controls label {
+    display: block;
+    width: 27px;
+    height: 27px;
+    border-radius: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.controls label:hover {
+    cursor: pointer;
+}
+
+.controls label:hover span {
+    background-color: white;
+    border: white solid 2px;
+    transition: 0.4s;
+}
+
+.controls label:active span {
+    background-color: rgb(252, 222, 222);
+    border: rgb(252, 222, 222) solid 3px;
+    transition: 0.4s;
+}
+
+.controls span {
+    display: block;
+    width: 10px;
+    height: 10px;
+    border-radius: 50px;
+    border: rgb(154, 154, 255) solid 2px;
+    background-color: rgb(154, 154, 255);
 }
