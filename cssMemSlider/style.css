@@ -1,7 +1,7 @@
-/* * {
+* {
     padding: 0;
     margin: 0;
-} */
+}
 
 .slider {
     padding: 30px 0px 30px;
@@ -21,6 +21,29 @@
 
 .slider-block input {
     display: none;
+}
+
+/* SLIDER */
+
+.container {
+    overflow: hidden;
+    border-radius: 20px;
+}
+
+.slider-wrapper {
+    display: flex;
+    width: 400%;
+    position: relative;
+    transition: 1s;
+}
+
+.slide {
+    width: 25%;
+}
+
+.slide img {
+    width: 100%;
+    height: auto;
 }
 
 
