@@ -141,3 +141,19 @@
 #switch4:checked~.container .slider-wrapper {
     left: -300%;
 }
+
+@media (max-width: 480px) {
+    .name-contolPanel-wrapper {
+        flex-direction: column-reverse;
+        row-gap: 5px;
+        height: auto;
+    }
+    .slider-block {
+        max-width: 658px;
+        margin: 0px 20px;
+    }
+    .slide-name label {
+        font-size: 18px;
+        color: white;
+    }
+}
