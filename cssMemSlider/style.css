@@ -3,9 +3,14 @@
     margin: 0;
 }
 
+body {
+    position: relative;
+}
+
 .slider {
-    padding: 30px 0px 30px;
-    max-width: 760px;
+    padding: 20px 0px 20px;
+    max-width: 50rem;
+    height: 100%;
     border: 4px rgb(116, 113, 113) solid;
     margin: 0 auto;
     background-color: rgb(70, 70, 70);
@@ -13,8 +18,8 @@
 }
 
 .slider-block {
-    max-width: 700px;
-    margin: 0 auto;
+    width: 90%;
+    margin: 20px auto;
     display: flex;
     flex-direction: column-reverse;
 }
@@ -34,11 +39,15 @@
     display: flex;
     width: 400%;
     position: relative;
+    order: 0;
     transition: 1s;
 }
 
 .slide {
     width: 25%;
+    opacity: 0;
+    transition: 0.5s;
+
 }
 
 .slide img {
@@ -59,13 +68,22 @@
     z-index: 3;
 }
 
-.name-contolPanel-wrapper label {
-    display: none;
+
+.slide-name {
+    display: flex;
+    flex-direction: column;
+    height: 28px;
+    overflow: hidden;
 }
 
 .slide-name label {
     font-size: 24px;
     color: white;
+    opacity: 0;
+    margin-left: 30px;
+    order: 0;
+    transform: rotate(-7deg) translate(-40px, 40px);
+    transition: 0.5s;
 }
 
 .controls {
@@ -109,37 +127,54 @@
     background-color: rgb(154, 154, 255);
 }
 
-#switch1:checked~.name-contolPanel-wrapper #controls label:nth-child(1) span, #switch2:checked~.name-contolPanel-wrapper #controls label:nth-child(2) span, #switch3:checked~.name-contolPanel-wrapper #controls label:nth-child(3) span, #switch4:checked~.name-contolPanel-wrapper #controls label:nth-child(4) span {
+#switch1:checked~.name-contolPanel-wrapper #controls label:nth-child(1) span,
+#switch2:checked~.name-contolPanel-wrapper #controls label:nth-child(2) span,
+#switch3:checked~.name-contolPanel-wrapper #controls label:nth-child(3) span,
+#switch4:checked~.name-contolPanel-wrapper #controls label:nth-child(4) span {
     background-color: rgb(70, 70, 70);
-    transition: 0.4s;
 }
 
-#switch1:checked~.name-contolPanel-wrapper #controls label:nth-child(1):hover span, #switch2:checked~.name-contolPanel-wrapper #controls label:nth-child(2):hover span, #switch3:checked~.name-contolPanel-wrapper #controls label:nth-child(3):hover span, #switch4:checked~.name-contolPanel-wrapper #controls label:nth-child(4):hover span {
+#switch1:checked~.name-contolPanel-wrapper #controls label:nth-child(1):hover span,
+#switch2:checked~.name-contolPanel-wrapper #controls label:nth-child(2):hover span,
+#switch3:checked~.name-contolPanel-wrapper #controls label:nth-child(3):hover span,
+#switch4:checked~.name-contolPanel-wrapper #controls label:nth-child(4):hover span {
     border: white solid 2px;
     background-color: rgb(70, 70, 70);
     cursor: pointer;
-    transition: 0.4s;
 }
 
-#switch1:checked~.name-contolPanel-wrapper #slide-name label:nth-child(1), #switch2:checked~.name-contolPanel-wrapper #slide-name label:nth-child(2), #switch3:checked~.name-contolPanel-wrapper #slide-name label:nth-child(3), #switch4:checked~.name-contolPanel-wrapper #slide-name label:nth-child(4) {
-    display: block;
-    transition: 2s;
+#switch1:checked~.name-contolPanel-wrapper #slide-name label:nth-child(1),
+#switch2:checked~.name-contolPanel-wrapper #slide-name label:nth-child(2),
+#switch3:checked~.name-contolPanel-wrapper #slide-name label:nth-child(3),
+#switch4:checked~.name-contolPanel-wrapper #slide-name label:nth-child(4) {
+    order: -1;
+    opacity: 1;
+    margin-left: 0px;
+    transform: rotate(0deg);
 }
 
-#switch1:checked~.container .slider-wrapper {
-    left: 0px;
+#switch1:checked~.container .slider-wrapper .slide1 {
+    opacity: 1;
+    order: -1;
+    transform: rotate(720deg);
 }
 
-#switch2:checked~.container .slider-wrapper {
-    left: -100%;
+#switch2:checked~.container .slider-wrapper .slide2 {
+    opacity: 1;
+    order: -1;
+    transform: rotate(720deg);
 }
 
-#switch3:checked~.container .slider-wrapper {
-    left: -200%;
+#switch3:checked~.container .slider-wrapper .slide3 {
+    opacity: 1;
+    transform: rotate(720deg);
+    order: -1;
 }
 
-#switch4:checked~.container .slider-wrapper {
-    left: -300%;
+#switch4:checked~.container .slider-wrapper .slide4 {
+    opacity: 1;
+    order: -1;
+    transform: rotate(720deg);
 }
 
 @media (max-width: 480px) {
@@ -148,12 +183,18 @@
         row-gap: 5px;
         height: auto;
     }
+
     .slider-block {
         max-width: 658px;
-        margin: 0px 20px;
     }
+
+    .slide-name {
+       align-self: flex-start;
+    }
+
     .slide-name label {
         font-size: 18px;
         color: white;
     }
+
 }
